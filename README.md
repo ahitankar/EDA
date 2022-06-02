@@ -1,23 +1,23 @@
 # EDA
 
-## 1. EDA on Tabular Data
+# 1. EDA on Tabular Data
 
-* Pandas Profiling  [Documentation](https://pandas-profiling.ydata.ai/docs/master/index.html "Pandas Profiling")
-    
-    The pandas df.describe() function is great but a little basic for serious exploratory data analysis. pandas_profiling extends the pandas DataFrame with df.profile_report() for quick data analysis.The report generated is static in nature.
+##  Pandas Profiling  [Documentation](https://pandas-profiling.ydata.ai/docs/master/index.html "Pandas Profiling")
+---
+The pandas df.describe() function is great but a little basic for serious exploratory data analysis. pandas_profiling extends the pandas DataFrame with df.profile_report() for quick data analysis.The report generated is static in nature.
 
-    ####    Pandas Profiling gives the following statistics in the HTML report.
+####    Pandas Profiling gives the following statistics in the HTML report.
 
-    *   **Type inference:** detect the types of columns in a dataframe.
-    *   **Essentials:** type, unique values, missing values
-    *   **Quantile statistics** like minimum value, Q1, median, Q3, maximum, range, interquartile range
-    *   **Descriptive statistics** like mean, mode, standard deviation, sum, median absolute deviation, coefficient of variation, kurtosis, skewness
-    *   **Most frequent values**
-    *   **Histogram**
-    *   **Correlations** highlighting of highly correlated variables, Spearman, Pearson and Kendall matrices
-    *   **Missing values** matrix, count, heatmap and dendrogram of missing values
-    *   **Text analysis** learn about categories (Uppercase, Space), scripts (Latin, Cyrillic) and blocks (ASCII) of text data.
-    *   **File and Image analysis** extract file sizes, creation dates and dimensions and scan for truncated images or those containing EXIF information.
+*   **Type inference:** detect the types of columns in a dataframe.
+*   **Essentials:** type, unique values, missing values
+*   **Quantile statistics** like minimum value, Q1, median, Q3, maximum, range, interquartile range
+*   **Descriptive statistics** like mean, mode, standard deviation, sum, median absolute deviation, coefficient of variation, kurtosis, skewness
+*   **Most frequent values**
+*   **Histogram**
+*   **Correlations** highlighting of highly correlated variables, Spearman, Pearson and Kendall matrices
+*   **Missing values** matrix, count, heatmap and dendrogram of missing values
+*   **Text analysis** learn about categories (Uppercase, Space), scripts (Latin, Cyrillic) and blocks (ASCII) of text data.
+*   **File and Image analysis** extract file sizes, creation dates and dimensions and scan for truncated images or those containing EXIF information.
 
 ### Installation
 
@@ -113,9 +113,34 @@ profile.to_file("output.html")
 ```
 
 
-* D Tale  [Documentation](https://pypi.org/project/dtale/ "DTale")
 
-    One of the best EDA Library found so far. It has lot of customizations available. [Here](http://alphatechadmin.pythonanywhere.com/dtale/main/1)
+
+
+---
+
+ ## D Tale  [Documentation](https://pypi.org/project/dtale/ "DTale")
+---
+D-Tale is the combination of a Flask back-end and a React front-end to bring you an easy way to view & analyze Pandas data structures. It integrates seamlessly with ipython notebooks & python/ipython terminals. Currently this tool supports such Pandas objects as DataFrame, Series, MultiIndex, DatetimeIndex & RangeIndex. It has lot of customizations available. [Here](http://alphatechadmin.pythonanywhere.com/dtale/main/1)
+
+### Installation
+
+`pip install dtale`
+
+### Import the dtale
+
+`import dtale`
+
+
+### Generate Report
+
+```python
+d = dtale.show(df)
+```
+### Open Server Browser
+```python
+d.open_browser()
+```
+
 * Lux   [Documentation](https://lux-api.readthedocs.io/en/latest/ "Lux")
 
     We can apply any command from Pandas’s API to the dataframes in Lux and expect the same behavior.
