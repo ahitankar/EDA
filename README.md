@@ -140,17 +140,49 @@ d = dtale.show(df)
 ```python
 d.open_browser()
 ```
+---
+## Lux   [Documentation](https://lux-api.readthedocs.io/en/latest/ "Lux")
+---
+Lux is designed to be tightly integrated with Pandas and can be used as-is, without modifying your existing Pandas code. To enable Lux, simply add import lux along with your Pandas import statement.
+Lux preserves the Pandas dataframe semantics – which means that you can apply any command from Pandas’s API to the dataframes in Lux and expect the same behavior. For example, we can load the dataset via standard Pandas read_* commands. To visualize your dataframe in Lux, simply print out the dataframe. You should see the default Pandas table display with an additional toggle button.
 
-* Lux   [Documentation](https://lux-api.readthedocs.io/en/latest/ "Lux")
 
-    We can apply any command from Pandas’s API to the dataframes in Lux and expect the same behavior.
+### Installation
 
-### **Conclusion**
+`pip install lux-api`
+
+### Import the dtale
+
+`import lux`
+
+
+### Generate Report
+
+```python
+df = pd.read_csv("lux/data/college.csv")
+df
+```
+---
+## **Conclusion**
+---
     Generally we can classify the dataset based on volumnes:
-    When the dataset is large in volumne then it's found that D-Tale take too much time to load and lux also did not show it's performance at it's best. So in that case use Pandas Profiling for large dataset so that we will get the report as a whole for analysis.
+    When the dataset is large in volumne then it's found that D-Tale take too much time to load and lux also did not show it's performance at it's best. So in that case use Pandas Profiling for large dataset with "minimal = True" so that we will get the report as a whole for analysis and then we can modify the config.yml file as per our requirement.
 
-## 2. EDA on Text Data
 
-* Texthero    [Documentation](https://texthero.org/ "Text Hero")
+---
+# 2. EDA on Text Data
 
-   It is very simple to learn and designed to be used on top of Pandas. [Click Here](https://pypi.org/project/texthero/)
+## Texthero    [Documentation](https://texthero.org/ "Text Hero")
+Texthero is a python package to work with text data efficiently.
+It empowers NLP developers with a tool to quickly understand any text-based dataset and
+it provides a solid pipeline to clean and represent text data, from zero to hero.
+
+#   Texthero include tools for:
+
+*   Preprocess text data: it offers both out-of-the-box solutions but it's also flexible for custom-solutions.
+*   Natural Language Processing: keyphrases and keywords extraction, and named entity recognition.
+*   Text representation: TF-IDF, term frequency, and custom word-embeddings (wip)
+*   Vector space analysis: clustering (K-means, Meanshift, DBSCAN and Hierarchical), topic modeling (wip) and interpretation.
+*   Text visualization: vector space visualization, place localization on maps (wip).
+
+For detailed Implemtation refer to [this](Text%20Data/text_EDA.ipynb) notebook.
