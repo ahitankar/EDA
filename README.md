@@ -111,7 +111,23 @@ This is a default configuration that disables expensive computations (such as co
 profile = ProfileReport(large_dataset, minimal=True)
 profile.to_file("output.html")
 ```
+### Using a custom configuration file
+To set the configuration of pandas-profiling using a custom file.
+```python
+profile = ProfileReport(df, config_file="your_config.yml")
+profile.to_file("report.html")
+```
 
+### Cutomise plots
+A way how to pass arguments to the underlying matplotlib is to use the plot argument. It is possible to change the default format of images to png (default svg) using the key-pair image_format: "png" and also the resolution of the image using dpi: 800. An example would be:
+```python
+profile = ProfileReport(
+    planets,
+    title="Pandas Profiling Report",
+    explorative=True,
+    plot={"dpi": 200, "image_format": "png"},
+)
+```
 
 
 
@@ -173,6 +189,7 @@ df
 # 2. EDA on Text Data
 
 ## Texthero    [Documentation](https://texthero.org/ "Text Hero")
+
 Texthero is a python package to work with text data efficiently.
 It empowers NLP developers with a tool to quickly understand any text-based dataset and
 it provides a solid pipeline to clean and represent text data, from zero to hero.
