@@ -117,7 +117,7 @@ Example 3: Customize your Insights
 plot(df,config={'insight.missing.threshold':20, 'insight.duplicates.threshold':20})
 ```
 
-
+---
 ##  Pandas Profiling  [Documentation](https://pandas-profiling.ydata.ai/docs/master/index.html "Pandas Profiling")
 ---
 The pandas df.describe() function is great but a little basic for serious exploratory data analysis. pandas_profiling extends the pandas DataFrame with df.profile_report() for quick data analysis.The report generated is static in nature.
