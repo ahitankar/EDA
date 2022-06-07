@@ -2,6 +2,122 @@
 
 # 1. EDA on Tabular Data
 
+##  Data Prep  [Documentation](https://docs.dataprep.ai/index.html "Data Prep")
+---
+DataPrep lets you prepare your data using a single library with a few lines of code.
+Currently, you can use DataPrep to:
+Collect data from common data sources (through dataprep.connector)
+Do your exploratory data analysis (through dataprep.eda)
+Clean and standardize data (through dataprep.clean)
+
+DataPrep.EDA is the fastest and the easiest EDA (Exploratory Data Analysis) tool in Python. It allows you to understand a Pandas/Dask DataFrame with a few lines of code in seconds.
+
+**Create Profile Reports, Fast**
+
+You can create a beautiful profile report from a Pandas/Dask DataFrame with the create_report function. DataPrep.EDA has the following advantages compared to other tools:
+
+*   **10X Faster:** DataPrep.EDA can be 10X faster than Pandas-based profiling tools due to its highly optimized Dask-based computing module.
+*   **Interactive Visualization:** DataPrep.EDA generates interactive visualizations in a report, which makes the report look more appealing to end users.
+*   **Big Data Support:** DataPrep.EDA naturally supports big data stored in a Dask cluster by accepting a Dask dataframe as input.
+---
+
+### Installation
+
+`pip install dataprep`
+
+### Import the DataPrep
+
+`from dataprep.eda import *`
+
+
+### Generate Report
+
+```python
+report = create_report(df)
+report
+```
+
+### Modules of EDA in DataPrep
+
+1.  **plot(): analyze distributions**
+
+    plot(df): plots the distribution of each column and computes dataset statistics
+
+    plot(df, col1): plots the distribution of column col1 in various ways, and computes its statistics
+
+    plot(df, col1, col2): generates plots depicting the relationship between columns col1 and col2
+
+
+2.  **plot_correlation(): analyze correlations**
+
+    plot_correlation(df): plots correlation matrices (correlations between all pairs of columns)
+
+    plot_correlation(df, col1): plots the most correlated columns to column col1
+
+    plot_correlation(df, col1, col2): plots the joint distribution of column col1 and column col2 and computes a regression line
+
+
+3.  **plot_missing(): analyze missing values**
+    plot_missing(df): plots the amount and position of missing values, and their relationship between columns
+
+    plot_missing(df, col1): plots the impact of the missing values in column col1 on all other columns
+
+    plot_missing(df, col1, col2): plots the impact of the missing values from column col1 on column col2 in various ways.
+
+4.  **plot_diff(): analyze differences**
+
+    The function plot_diff() explores the difference of column distributions and statistics across multiple datasets.
+
+5.  **create_report: generate profile reports from a pandas DataFrame**
+
+The goal of create_report is to generate profile reports from a pandas DataFrame. create_report utilizes the functionalities and formats the plots from dataprep. It provides the following information:
+
+1.  **Overview:** detect the types of columns in a dataframe
+
+2.  **Variables:** variable type, unique values, distint count, missing values
+
+3.  Quantile statistics like minimum value, Q1, median, Q3, maximum, range, interquartile range
+
+4.  Descriptive statistics like mean, mode, standard deviation, sum, median absolute deviation, coefficient of variation, kurtosis, skewness
+
+5.  Text analysis for length, sample and letter
+
+6.  **Correlations:** highlighting of highly correlated variables, Spearman, Pearson and Kendall matrices
+
+7.  **Missing Values:** bar chart, heatmap and spectrum of missing values
+
+
+```python
+from dataprep.eda import create_report
+report = create_report(df, title='My Report')
+```
+
+
+### **Customizations available in dataprep.**
+
+1.  Display: is a list of names which controls the Tabs, Sections and Sessions you want to show.
+
+2.  Config: is a dictionary that contains the customizable parameters and designated values.
+
+Click the question mark icon in the upper right corner of each plot, in the pop-up you will see the customizable parameters for that plot, parameters’ brief descriptions and parameters’ default settings. You can easily use the Copy All Parameters button to copy the parameters with their default settings into a dictionary. Then customize the settings and pass to the config argument.
+
+Example 1:  Choose the Tabs, Sections and Sessions you want
+```python
+from dataprep.eda import plot,create_report
+from dataprep.datasets import load_dataset
+df = load_dataset('titanic')
+plot(df, 'Pclass', display=['Stats', 'Bar Chart', 'Pie Chart'])
+```
+Example 2: Customize your plot. [Refer this](https://docs.dataprep.ai/api_reference/dataprep.eda.html#module-dataprep.eda.configs)
+```python
+plot(df, "Pclass", config={'bar.bars': 10, 'bar.sort_descending': True, 'bar.yscale': 'linear', 'height': 400, 'width': 450, })
+```
+Example 3: Customize your Insights
+```python
+plot(df,config={'insight.missing.threshold':20, 'insight.duplicates.threshold':20})
+```
+
+
 ##  Pandas Profiling  [Documentation](https://pandas-profiling.ydata.ai/docs/master/index.html "Pandas Profiling")
 ---
 The pandas df.describe() function is great but a little basic for serious exploratory data analysis. pandas_profiling extends the pandas DataFrame with df.profile_report() for quick data analysis.The report generated is static in nature.
